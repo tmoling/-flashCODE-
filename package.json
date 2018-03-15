@@ -10,8 +10,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.2",
+    "dotenv": "^5.0.1",
+    "env": "0.0.2",
     "express": "^4.16.3",
+    "inquirer": "^5.1.0",
+    "mysql": "^2.15.0",
     "path": "^0.12.7"
   }
 }
