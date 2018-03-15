@@ -15,8 +15,9 @@ app.use(express.static(path.join(__dirname, '/public')));
 //this sends api and html pages through require 
 //remember server acts as the main js file here
 require('./routes/path.js')(app);
-require('./controllers/usersController.js')
+var usersController = require('./controllers/usersController.js');
 
+app.use('/', usersController);
 
 // this starts the server to begin listening
 app.listen(PORT, function () {
@@ -34,3 +35,17 @@ app.listen(PORT, function () {
 //we need route to populate this randomly chosen question on page
 // var query = 'SELECT questions FROM flashcards WHERE id = ?'
 //     connection.query(query)
+
+
+// Add CommentCollapse 
+// Message Input
+
+// Message Jake, Ryan Walters
+
+// *bold* _italics_ ~strike~ `code` ```preformatted``` >quote
+// About this conversation
+
+
+// Pinned Items
+ 
+// 3 Members
