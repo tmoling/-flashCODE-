@@ -5,7 +5,7 @@ var mysql = require('mysql')
 var connection = require('../config/connection.js')
 
 //this is the users_controller.js file
-router.get('/', function(req,res) {
+router.get('/new', function(req,res) {
   res.render('users/new');
 });
 

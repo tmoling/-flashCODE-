@@ -9,15 +9,12 @@ var PORT = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 
-// this sets up static files in express
-app.use(express.static(path.join(__dirname, '/public')));
-//this sets up routes by requiring from routing folder 
-//this sends api and html pages through require 
-//remember server acts as the main js file here
-require('./routes/path.js')(app);
+
+var applicationController = require("./controllers/applicationController.js");
 var usersController = require('./controllers/usersController.js');
 
-app.use('/', usersController);
+app.use("/", applicationController);
+app.use('/users', usersController);
 
 var exphbs = require('express-handlebars');
 
