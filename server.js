@@ -19,6 +19,11 @@ var usersController = require('./controllers/usersController.js');
 
 app.use('/', usersController);
 
+var exphbs = require('express-handlebars');
+
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
+app.set('view engine', 'handlebars');
+
 // this starts the server to begin listening
 app.listen(PORT, function () {
     console.log('App listening on PORT ' + PORT);
