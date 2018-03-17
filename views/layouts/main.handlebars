@@ -1,30 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>FlashCode</title>
+    <title>Coding Flashcards</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Righteous|Annie+Use+Your+Telescope|Bangers" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.0.0.js" integrity="sha256-jrPLZ+8vDxt2FnE1zvZXCkCcebI/C8Dt5xyaQBjxQIo=" crossorigin="anonymous"></script>
 </head>
 
 <body>
-            <a href="/users/sign-in">Sign In</a>
-            <a href="/users/new">Register</a>
-
-                    <p class="clear">
-                        <strong>logged_in:</strong> {{logged_in}}
-                        <br>
-                        <strong>user_email:</strong> {{user_email}}
-                        <br>
-                        <strong>user_id:</strong> {{user_id}}
-                        <br>
-                        <strong>company:</strong> {{company}}
-                        <br>
-                        <strong>username:</strong> {{username}}</p>
-                    
-                    
-                    {{{ body }}}
+    <br>
+    <h1>{flashCODE}</h1>
+    <h2>Hone your development skills ... in a FLASH.</h2>
+    <br>
+    <div id="wrapper">
+        <center>
+            <div id="main-content" class="container">
+                <div class="jumbotron">
+                    <a class="btn btn-warning btn-lg" href='/users/sign-in' role='button'>Sign In</a>
+                    <a class="btn btn-warning btn-lg" href="/users/new" role="button">Register</a>
+                </div>
+            </div>
+        </center>
+    </div>
+                
+                {{{ body }}}
+                
+    <footer class="footer">
+    </footer>
 </body>
+<style>
+    body {
+        background-color: #473586;
+    }
 
-</html>
+    /* flashcode text text */
+
+    h1 {
+        font-family: 'Righteous', cursive;
+        text-align: center;
+        font-size: 100px;
+        color: antiquewhite;
+    }
+
+    /* under flashcode text */
+
+    h2 {
+        font-family: 'Annie Use Your Telescope', cursive;
+        text-align: center;
+        font-size: 40px;
+        color: antiquewhite;
+        font: bold;
+    }
+
+    /* button text */
+
+    p {
+        text-align: center;
+        font-family: 'Bangers', cursive;
+    }
+
+    /* pertains to jumbotron */
+
+    body {
+        height: 100%;
+    }
+
+    .container {
+        width: 500px;
+    }
+
+    /* pertains to buttons */
+
+    .btn {
+        background-color: #473586;
+    }
+
+    #signin, #register {
+        text-align: center;
+    }
+</style>
+
+

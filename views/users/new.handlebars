@@ -1,21 +1,23 @@
 
-<h1>Registration</h1>
+
+
+<center>
+  <h2>Registration</h2>
 <form class="create-update-form" action="/users/create" method="POST">
 
   <div class="form-group">
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username">
+    <h2><label for="username">Username:</label></h2><span> <input type="text" id="username" name="username"></span>
   </div>
 
   <div class="form-group">
-    <label for="email">Email:</label>
-    <input type="text" id="email" name="email">
+    <h2><label for="email">Email:</label></h2><span> <input type="text" id="email" name="email"></span>
+    
   </div>
 
   <div class="form-group">
-    <label for="pass">Password:</label>
-    <input type="password" id="pass" name="password">
+    <h2><label for="pass">Password:</label></h2><span> <input type="password" id="pass" name="password"></span>
   </div>
 
-  <button type="submit">Sign Up!</button>
+  <a id="register" class="btn btn-warning btn-lg" type="submit">Sign Up!</a>
 </form>
+</center>
