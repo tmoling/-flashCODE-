@@ -18,5 +18,15 @@
     "inquirer": "^5.1.0",
     "mysql": "^2.15.0",
     "path": "^0.12.7"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tmoling/project-two.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/tmoling/project-two/issues"
+  },
+  "homepage": "https://github.com/tmoling/project-two#readme"
 }
