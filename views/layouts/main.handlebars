@@ -24,15 +24,20 @@
             </div>
         </center>
     </div>
-                
-                {{{ body }}}
-                
+
+    {{{ body }}}
+
     <footer class="footer">
     </footer>
 </body>
 <style>
     body {
-        background-color: #473586;
+        background: #000000;
+        /* fallback for old browsers */
+        background: -webkit-linear-gradient(to bottom, #53346D, #000000);
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to bottom, #53346D, #000000);
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     }
 
     /* flashcode text text */
@@ -54,6 +59,14 @@
         font: bold;
     }
 
+    h3 {
+        font-family: 'Annie Use Your Telescope', cursive;
+        text-align: center;
+        font-size: 27px;
+        color: antiquewhite;
+        font: bold;
+    }
+
     /* button text */
 
     p {
@@ -68,18 +81,17 @@
     }
 
     .container {
-        width: 500px;
+        width: 400px;
     }
 
     /* pertains to buttons */
 
     .btn {
-        background-color: #473586;
+        background-color: #000000;
     }
 
-    #signin, #register {
+    #signin,
+    #register {
         text-align: center;
     }
 </style>
-
-
