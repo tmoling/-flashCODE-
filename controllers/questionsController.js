@@ -8,11 +8,11 @@ console.log("loaded quest contr");
 router.get('/', function(req,res) {
 	console.log("hit questios path");
 	
-	var query = "SELECT * FROM questions"
+	var query = "SELECT * FROM flashcard_db.flashcards WHERE id = ?"
 	
-	query = query + id; //query += id;
+	// query = query + id; //query += id;
 
-	connection.query(query, function(err, result) {
+	connection.query(query, [req.session.questNum] function(err, result) {
 		// res.json(result[0]);
 	 res.render('questions', {
 			 id: result[0].id,
