@@ -3,10 +3,10 @@ var express = require('express');
 var router  = express.Router();
 var connection = require('../config/connection.js')
 
-
+console.log("loaded quest contr");
 //every route already has /questions in front of it.
 router.get('/', function(req,res) {
-	console.log("test");
+	console.log("hit questios path");
 	
 	var query = "SELECT * FROM questions"
 	

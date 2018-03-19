@@ -30,3 +30,7 @@ INSERT INTO flashcards
     (questions, answers)
 VALUES
     ('What special character is used when coding with jQuery?', '$');
+
+INSERT INTO users ( username, email, password_hash, flashcard_id )  
+VALUES
+("user", "user@user.com", "$2a$10$pJXUz4FJznL8TCpl/RcJIumV8C8xgxREYR8nJjeVseTETU9AdFjye", "1");
