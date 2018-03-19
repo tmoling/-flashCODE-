@@ -19,9 +19,11 @@ app.use(bodyParser.text());
 
 var applicationController = require("./controllers/applicationController.js");
 var usersController = require('./controllers/usersController.js');
+var questionsController = require('./controllers/questionsController.js');
 
 app.use("/", applicationController);
 app.use('/users', usersController);
+app.use('/questions', questionsController);
 
 var exphbs = require('express-handlebars');
 

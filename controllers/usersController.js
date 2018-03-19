@@ -58,11 +58,13 @@ router.post('/create', function(req,res) {
       bcrypt.genSalt(10, function(err, salt) {
           //res.send(salt); //$2a$10$iFzdRYHKrNSOzwS/SDI/W.
           bcrypt.hash(req.body.password, salt, function(err, hash) {  
-            res.send(hash)          
-            var query = "INSERT INTO users (username, email, password_hash, company) VALUES (?, ?, ?, ?)"
+            res.send(hash)
 
-            connection.query(query, [ req.body.username, req.body.email, hash, req.body.company ], function(err, response) {
+            var query = "INSERT INTO users (username, email, password_hash) VALUES (?, ?, ?)"
 
+            connection.query(query, [ req.body.username, req.body.email, hash ], function(err, response) {
+              if(err) throw err;
+              
               req.session.logged_in = true;
 
               req.session.user_id = response.insertId; //only way to get id of an insert for the mysql npm package

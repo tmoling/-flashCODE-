@@ -23,11 +23,12 @@
         <br>
         <div class="input-group">
           <p>Let's start playing ***username***!</p>
-          
+
         </div>
         <br>
         <div class="input-group">
           <p>question will go here</p>
+          <input type="text" id="question" class="form-control" required>
         </div>
         <br>
         <div class="input-group">
@@ -49,19 +50,74 @@
   <footer class="footer">
   </footer>
 
+  <div id="results-modal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+              <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h2 class="modal-title">
+                      <strong>Best Match</strong>
+                  </h2>
+              </div>
+              <div class="modal-body">
+                  <h2 id="match-name"></h2>
+              </div>
+              
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+          </div>
+
+      </div>
+
+  </div>
+
+
 </body>
+
+<?php
+$servername = "localhost";
+$username = "username";
+$password = "password";
+$dbname = "flashcard_db";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+
+$sql = "SELECT id, firstname, lastname FROM MyGuests";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
+    }
+} else {
+    echo "0 results";
+}
+$conn->close();
+?>
+
+
+
+
+</script>
 <style>
   h1 {
     font-family: 'Shrikhand', cursive;
   }
 
-  h2, 
+  h2,
   p {
     font-family: 'Montserrat', cursive;
   }
-
 </style>
 
 
 </html>
-
