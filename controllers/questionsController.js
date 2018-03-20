@@ -34,7 +34,7 @@ router.get('/', function(req,res) {
 				flags: 'a' // 'a' means appending (old data will be preserved)
 			})
 
-			append1.write('\n\nQuestion: ' + JSON.stringify(result[0].questions));
+			append1.write('<br>\n\nQuestion: ' + JSON.stringify(result[0].questions));
 			append2.write('\nAnswer: ' + JSON.stringify(result[0].answers));
 
 			append1.end();
@@ -68,16 +68,19 @@ router.post('/submit', function(req,res){
 
  });
  
-// router.get('/result', function(req,res){
+router.get('/result', function(req,res){
+	
+	fs.readFile('log.txt', "utf8", function(err, data){
+		if(err) throw err;
+		var result = data;
+			
+				res.render('result', {
+					history: result
+				})
+			});	
 
-// 	fs.readFile('log.txt', function(err, data){
-// 		if(err) throw err;
-// 			var history = JSON.stringify(data);
-// 				console.log(history);
-// 	})
-// 	req.session.logged_in = true;
-// 		res.render('result', {
-// 			data: history
-// 		})
-// })
+		
+	});
+
+
 module.exports = router;
