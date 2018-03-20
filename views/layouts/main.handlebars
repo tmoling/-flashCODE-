@@ -14,18 +14,33 @@
     <h1>{flashCODE}</h1>
     <h2>Hone your development skills ... in a FLASH.</h2>
     <br>
-    <div id="wrapper">
-        <center>
-            <div id="main-content" class="container">
-                <div class="jumbotron">
-                    <a class="btn btn-warning btn-lg" href='/users/sign-in' role='button'>Sign In</a>
-                    <a class="btn btn-warning btn-lg" href="/users/create" role="button">Register</a>
-                </div>
-            </div>
-        </center>
-    </div>
+    {{#if logged_in}}
+        {{{ body }}}
+            <center>
+                <p><a class="btn btn-md" href="" id="next_question" role="button">Next question</a></p>
+                
+                <p><a class="btn btn-md" href="" id="done" role="button">Done</a></p>
+                <br><br>
+                <p><a href="/users/sign-out" id="sign-out">Sign Out:( {{this.username}} )</a></p>
+            </center>
+            
 
-    {{{ body }}}
+        {{else}}
+
+            <div id="wrapper">
+                <center>
+                    <div id="main-content" class="container">
+                        <div class="jumbotron">
+                            <a class="btn btn-warning btn-lg" href='/users/sign-in' role='button'>Sign In</a>
+                            <a class="btn btn-warning btn-lg" href="/users/create" role="button">Register</a>
+                        </div>
+                    </div>
+                </center>
+            </div>
+        {{{body}}}
+    {{/if}}
+
+    
 
     <footer class="footer">
     </footer>

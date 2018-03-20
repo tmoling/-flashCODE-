@@ -4,11 +4,11 @@ var router = express.Router();
 var mysql = require('mysql')
 var connection = require('../config/connection.js')
 
-console.log("user contrllers loaded");
+console.log("user controllers loaded");
 //this is the users_controller.js file
 router.get('/create', function (req, res) {
   console.log("hit the get for new user");
-  res.render('users/new');
+  res.render('users/new'); //render new.handlebars
 });
 
 router.post('/login', function (req, res) {
@@ -30,7 +30,9 @@ router.post('/login', function (req, res) {
         req.session.user_email = response[0].email;
         //req.session.company = response[0].company;
         req.session.username = response[0].username;
-        req.session.questNum = 0;
+        //questNum is between 1 and 8
+        req.session.questNum = Math.floor(Math.random() * Math.floor(8)) + 1; //8 needs to be updated...
+
 // go to questions
 res.redirect('/questions');
 
@@ -48,7 +50,7 @@ res.redirect('/questions');
 
   router.get('/sign-out', function (req, res) {
     req.session.destroy(function (err) {
-      res.sendFile(__dirname, 'public/home')
+      res.redirect('/')
     });
   });
 
