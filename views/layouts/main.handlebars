@@ -7,6 +7,7 @@
         crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Righteous|Annie+Use+Your+Telescope|Bangers" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.0.0.js" integrity="sha256-jrPLZ+8vDxt2FnE1zvZXCkCcebI/C8Dt5xyaQBjxQIo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -17,6 +18,13 @@
     {{#if logged_in}}
         {{{ body }}}
             <center>
+                <p>
+                    <form class="create-update-form" action="/questions/submit" method="POST">
+                        <input type="text" name="user_input" placeholder="Your answer goes here">
+                        <input type="submit" value="Submit">
+                    </form>
+                </p>
+
                 <p><a class="btn btn-md" href="" id="next_question" role="button">Next question</a></p>
                 
                 <p><a class="btn btn-md" href="" id="done" role="button">Done</a></p>
@@ -30,21 +38,31 @@
             <div id="wrapper">
                 <center>
                     <div id="main-content" class="container">
-                        <div class="jumbotron">
+                        
                             <a class="btn btn-warning btn-lg" href='/users/sign-in' role='button'>Sign In</a>
                             <a class="btn btn-warning btn-lg" href="/users/create" role="button">Register</a>
-                        </div>
+                       
                     </div>
                 </center>
             </div>
-        {{{body}}}
+         {{{body}}}
     {{/if}}
 
-    
+
 
     <footer class="footer">
     </footer>
 </body>
+{{!-- 
+<script>
+    $(document).ready(function () {
+        $('#submit').click(function () {
+            $('#correct_answer').document("<h2 id='correct_answer'> {{answer}} </h2>");
+        });
+        res.render('index');
+    }); 
+</script> --}}
+
 <style>
     body {
         background: #000000;
@@ -110,3 +128,4 @@
         text-align: center;
     }
 </style>
+
