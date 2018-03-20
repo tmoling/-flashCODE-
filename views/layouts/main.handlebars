@@ -14,53 +14,63 @@
     <br>
     <h1>{flashCODE}</h1>
     <h2>Hone your development skills ... in a FLASH.</h2>
-    <br>
-    {{#if logged_in}}
-        {{{ body }}}
-            <center>
-                <p>
-                    <form class="create-update-form" action="/questions/submit" method="POST">
-                        <input type="text" name="user_input" placeholder="Your answer goes here">
-                        <input type="submit" value="Submit">
-                    </form>
-                </p>
+    <br> {{#if logged_in}} {{{ body }}}
+    <center>
+        <p>
+            <form class="create-update-form" action="/questions/submit" method="POST">
+                <input type="text" name="user_input" placeholder="Your answer goes here">
+                <input class="submit-answer" type="submit" value="Submit">
+            </form>
+        </p>
 
-                <p><a class="btn btn-md" href="/questions" id="next_question" role="button">Next question</a></p>
-                
-                <p><a class="btn btn-md" href="/questions" id="done" role="button">Done</a></p>
-                <br><br>
-                <p><a href="/users/sign-out" id="sign-out">Sign Out:( {{this.username}} )</a></p>
-            </center>
-            
+        <p>
+            <a class="btn btn-md" href="/questions" id="next_question" role="button">Next question</a>
+        </p>
 
-        {{else}}
+        <p>
+            <a class="btn btn-md" href="/questions" id="done" role="button">Done</a>
+        </p>
+        <br>
+        <br>
+        <p>
+            <a href="/users/sign-out" id="sign-out">Sign Out:( {{this.username}} )</a>
+        </p>
+    </center>
 
-            <div id="wrapper">
-                <center>
-                    <div id="main-content" class="container">
-                        
-                            <a class="btn btn-warning btn-lg" href='/users/sign-in' role='button'>Sign In</a>
-                            <a class="btn btn-warning btn-lg" href="/users/create" role="button">Register</a>
-                       
-                    </div>
-                </center>
+
+    {{else}}
+
+    <div id="wrapper">
+        <center>
+            <div id="main-content" class="container">
+
+                <a class="btn btn-warning btn-lg" href='/users/sign-in' role='button'>Sign In</a>
+                <a class="btn btn-warning btn-lg" id="" href="/users/create" role="button">Register</a>
+
             </div>
-         {{{body}}}
-    {{/if}}
+        </center>
+    </div>
+    {{{body}}} {{/if}}
 
 
 
     <footer class="footer">
     </footer>
 </body>
-{{!-- 
-<script>
+
+{{!-- <script>
     $(document).ready(function () {
-        $('#submit').click(function () {
-            $('#correct_answer').document("<h2 id='correct_answer'> {{answer}} </h2>");
+        $('.submit-answer').click(function () {
+            $("#answer").show();
         });
-        res.render('index');
-    }); 
+
+        $("#next_question").click(function () {
+            $("#answer").hide();
+
+        });
+    });
+
+
 </script> --}}
 
 <style>
@@ -127,5 +137,8 @@
     #register {
         text-align: center;
     }
-</style>
 
+    #answer {
+        display: none;
+    }
+</style>
