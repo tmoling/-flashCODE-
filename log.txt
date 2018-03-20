@@ -1,0 +1,61 @@
+
+
+question: undefined
+answer undefined
+
+question: undefined
+answer undefined
+
+question: undefined
+answer undefined
+
+question: undefined
+answer undefined
+
+question: undefined
+answer undefined
+
+question: "JavaScript Object Notation"
+answer "What does JSON stand for?"
+
+question: "JavaScript"
+answer "What language are Express apps written in?"
+
+Question: "What does API stand for?"
+Answer: "Application Programming Interface"
+
+Question: "What is one way a website can store data in a browser?"
+Answer: "Cookies"
+
+Question: "What is one way a website can store data in a browser?"
+Answer: "Cookies"
+
+Question: "What does CSS stand for?"
+Answer: "Cascading Style Sheets"
+
+Question: "What is one way a website can store data in a browser?"
+Answer: "Cookies"
+
+Question: "What is one way a website can store data in a browser?"
+Answer: "Cookies"
+
+Question: "What does API stand for?"
+Answer: "Application Programming Interface"
+
+Question: "What does CSS stand for?"
+Answer: "Cascading Style Sheets"
+
+Question: "What does JSON stand for?"
+Answer: "JavaScript Object Notation"
+
+Question: "What special character is used when coding with jQuery?"
+Answer: "$"
+
+Question: "What does JSON stand for?"
+Answer: "JavaScript Object Notation"
+
+Question: "What language are Express apps written in?"
+Answer: "JavaScript"
+
+Question: "What does CSS stand for?"
+Answer: "Cascading Style Sheets"
