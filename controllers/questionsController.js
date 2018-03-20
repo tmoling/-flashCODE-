@@ -17,16 +17,15 @@ router.get('/', function(req,res) {
 		connection.query(query, [req.session.questNum], function(err, result) {
 			if(err) throw err;
 			req.session.logged_in = true;
-
+		
+			
 		res.render('index', {
 				logged_in: req.session.logged_in,
-				answer: result[0].answers,
 				question: result[0].questions,//this is the randomly chosen question
-				username: req.session.username
+				username: req.session.username,//this is the randomly chosen question
+				
 		 });
 			console.log(result[0].answers);
-
-		
 
 			var append1 = fs.createWriteStream('log.txt', {
 				flags: 'a' // 'a' means appending (old data will be preserved)
@@ -48,16 +47,37 @@ router.get('/', function(req,res) {
 
 router.post('/submit', function(req,res){
 	 req.session.logged_in = true;
-	 
-		res.render('answer', {
-			logged_in: req.session.logged_in,
-			answer: req.session.res_answer,
-			question: req.session.res_question, //this is the randomly chosen question
+	
+	 var query = "SELECT questions, answers FROM flashcards WHERE id = ?"
+	connection.query(query, [req.session.questNum], function (err, result) {
+		 if(err) throw err;
+
+		 res.render('index', {
+			username: req.session.username,
 			input: req.body.user_input,
-			username: req.session.username
-	 });
-	console.log(req.body.user_input);
+			logged_in: req.session.logged_in,
+			answer: result[0].answers,
+			question: result[0].questions,
+			isEmpty: req.body.user_input == ""
+
+		 });
+
+	 })
+			console.log(req.body.user_input);
+			console.log(req.session.username);
+
  });
  
+// router.get('/result', function(req,res){
 
+// 	fs.readFile('log.txt', function(err, data){
+// 		if(err) throw err;
+// 			var history = JSON.stringify(data);
+// 				console.log(history);
+// 	})
+// 	req.session.logged_in = true;
+// 		res.render('result', {
+// 			data: history
+// 		})
+// })
 module.exports = router;

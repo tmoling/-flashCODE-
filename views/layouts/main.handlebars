@@ -8,8 +8,13 @@
     <link href="https://fonts.googleapis.com/css?family=Righteous|Annie+Use+Your+Telescope|Bangers" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.0.0.js" integrity="sha256-jrPLZ+8vDxt2FnE1zvZXCkCcebI/C8Dt5xyaQBjxQIo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
 </head>
-
+<script type="text/javascript">
+    function preventBack() { window.history.forward(1); }
+    setTimeout("preventBack()", 0);
+    window.onunload = function () { null };
+</script>
 <body>
     <br>
     <h1>{flashCODE}</h1>
@@ -53,15 +58,6 @@
     <footer class="footer">
     </footer>
 </body>
-{{!-- 
-<script>
-    $(document).ready(function () {
-        $('#submit').click(function () {
-            $('#correct_answer').document("<h2 id='correct_answer'> {{answer}} </h2>");
-        });
-        res.render('index');
-    }); 
-</script> --}}
 
 <style>
     body {
@@ -96,7 +92,7 @@
         font-family: 'Annie Use Your Telescope', cursive;
         text-align: center;
         font-size: 27px;
-        color: antiquewhite;
+        color:yellow;
         font: bold;
     }
 

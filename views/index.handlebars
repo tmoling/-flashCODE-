@@ -1,8 +1,25 @@
 
-<h2>{{question}}</h2>
+<h2>{{#if logged_in}}
+         Question: {{question}}
+          {{else}}
+       
+    {{/if}}</h2>
 
-{{!-- answer key word --}}
-<h2 id="correct_answer" hidden>{{answer}}</h2> <br>
+{{#if logged_in}}
+    {{#if isEmpty}}
+
+         <h2>Type in the answer please...</h2><br>
+        {{else}}
+
+        <h3><strong>Your input: </strong>{{input}}</h3><br>
+        <h2><strong>Correct Answer: </strong>{{answer}}</h2>
+        <br>
+    {{/if}}
+
+{{else}}
+{{/if}}
+
+
 
 
 
