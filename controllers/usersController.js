@@ -30,8 +30,7 @@ router.post('/login', function (req, res) {
         req.session.user_email = response[0].email;
         //req.session.company = response[0].company;
         req.session.username = response[0].username;
-        //questNum is between 1 and 8
-        req.session.questNum = Math.floor(Math.random() * Math.floor(8)) + 1; //8 needs to be updated...
+
 
 // go to questions
 res.redirect('/questions');
