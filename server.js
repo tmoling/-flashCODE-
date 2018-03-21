@@ -32,7 +32,7 @@ app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
 
-var PORT = process.env.PORT || 3001;
+var PORT = process.env.PORT || 3000;
 // this starts the server to begin listening
 app.listen(PORT, function () {
     console.log('App listening on PORT ' + PORT);
