@@ -1,1 +1,13 @@
-<h2>{{input}}</h2>
+<h4>{{#if logged_in}} Question: {{question}} {{else}} {{/if}}</h4>
+
+
+{{#if isEmpty}}
+
+<h2>Type in the answer please...</h2>
+<br> {{else}}
+<h4>
+    <strong>Your input: </strong>{{input}}</h4>
+<br>
+<h4>
+    <strong>Correct Answer: </strong>{{answer}}</h4>
+<br> {{/if}}

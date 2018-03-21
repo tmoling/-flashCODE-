@@ -3,6 +3,7 @@ var express = require('express');
 var router = express.Router();
 var mysql = require('mysql')
 var connection = require('../config/connection.js')
+var fs = require('fs');
 
 console.log("user controllers loaded");
 //this is the users_controller.js file
@@ -36,7 +37,6 @@ router.post('/login', function (req, res) {
 res.redirect('/questions');
 
 
-
       };
 
     });
@@ -50,6 +50,10 @@ res.redirect('/questions');
   router.get('/sign-out', function (req, res) {
     req.session.destroy(function (err) {
       res.redirect('/')
+    });
+    fs.unlink('log.pdf', (err) => {
+      if (err) throw err;
+      console.log('log.pdf was deleted');
     });
   });
 
@@ -73,8 +77,7 @@ res.redirect('/questions');
     connection.query(query, [req.body.email], function (err, response) {
       console.log(response)
       if (response.length > 0) {
-        res.send('we already have an email or username for this account');
-        return;
+        res.redirect(200, '/');
       } else {
 
         bcrypt.genSalt(10, function (err, salt) {

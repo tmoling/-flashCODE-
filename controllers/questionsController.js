@@ -6,9 +6,9 @@ var fs = require('fs');
 
 console.log("loaded quest contr");
 
-
 //every route already has /questions in front of it.
 router.get('/', function(req,res) {
+
 		//questNum is between 1 and 8
 		req.session.questNum = Math.floor(Math.random() * Math.floor(8)) + 1; //8 needs to be updated...
 
@@ -25,17 +25,17 @@ router.get('/', function(req,res) {
 				username: req.session.username,//this is the randomly chosen question
 				
 		 });
-			console.log(result[0].answers);
+		
 
-			var append1 = fs.createWriteStream('log.txt', {
+			var append1 = fs.createWriteStream('log.pdf', {
 				flags: 'a' // 'a' means appending (old data will be preserved)
 			})
-			var append2 = fs.createWriteStream('log.txt', {
+			var append2 = fs.createWriteStream('log.pdf', {
 				flags: 'a' // 'a' means appending (old data will be preserved)
 			})
 
-			append1.write('<br>\n\nQuestion: ' + JSON.stringify(result[0].questions));
-			append2.write('\nAnswer: ' + JSON.stringify(result[0].answers));
+			append1.write('<br>Question: ' + result[0].questions);
+			append2.write('<br>Answer: ' + result[0].answers + '<hr>');
 
 			append1.end();
 			append2.end();
@@ -52,14 +52,14 @@ router.post('/submit', function(req,res){
 	connection.query(query, [req.session.questNum], function (err, result) {
 		 if(err) throw err;
 
-		 res.render('index', {
+		 res.render('answer', {
 			username: req.session.username,
 			input: req.body.user_input,
 			logged_in: req.session.logged_in,
 			answer: result[0].answers,
 			question: result[0].questions,
-			isEmpty: req.body.user_input == ""
-
+			isEmpty: req.body.user_input == "",
+			isAnswer: result[0].answers == ""
 		 });
 
 	 })
@@ -70,7 +70,7 @@ router.post('/submit', function(req,res){
  
 router.get('/result', function(req,res){
 	
-	fs.readFile('log.txt', "utf8", function(err, data){
+	fs.readFile('log.pdf', "utf8", function(err, data){
 		if(err) throw err;
 		var result = data;
 			
@@ -78,7 +78,10 @@ router.get('/result', function(req,res){
 					history: result
 				})
 			});	
-
+	fs.unlink('log.pdf', (err) => {
+		if (err) throw err;
+			console.log('log.pdf was deleted');
+		});	
 		
 	});
 

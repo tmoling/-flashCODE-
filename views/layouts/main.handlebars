@@ -5,69 +5,57 @@
     <title>Coding Flashcards</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
         crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Righteous|Annie+Use+Your+Telescope|Bangers" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Righteous|Annie+Use+Your+Telescope|Bangers|Hind" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.0.0.js" integrity="sha256-jrPLZ+8vDxt2FnE1zvZXCkCcebI/C8Dt5xyaQBjxQIo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    
 </head>
 <script type="text/javascript">
     function preventBack() { window.history.forward(1); }
     setTimeout("preventBack()", 0);
     window.onunload = function () { null };
 </script>
+
 <body>
     <br>
     <h1>{flashCODE}</h1>
     <h2>Hone your development skills ... in a FLASH.</h2>
-    <br>
-    {{#if logged_in}}
-        {{{ body }}}
-            <center>
-                <p>
-                    <form class="create-update-form" action="/questions/submit" method="POST">
-                        <input type="text" name="user_input" placeholder="Your answer goes here">
-                        <input type="submit" value="Submit">
-                    </form>
-                </p>
-
-                <p><a class="btn btn-md" href="/questions" id="next_question" role="button">Next question</a></p>
-                
-                <p><a class="btn btn-md" href="/questions/result" id="done" role="button">Done</a></p>
-                <br><br>
-                <p><a href="/users/sign-out" id="sign-out">Sign Out:( {{this.username}} )</a></p>
-            </center>
-            
-
-        {{else}}
-
-            <div id="wrapper">
-                <center>
-                    <div id="main-content" class="container">
-                        
-                            <a class="btn btn-warning btn-lg" href='/users/sign-in' role='button'>Sign In</a>
-                            <a class="btn btn-warning btn-lg" href="/users/create" role="button">Register</a>
-                       
-                    </div>
-                </center>
+    <br> {{#if logged_in}} {{{ body }}}
+    <center>
+        <p>
+            <form class="create-update-form" action="/questions/submit" method="POST">
+                <input type="text" name="user_input" placeholder="Your answer goes here">
+                <input type="submit" value="Submit">
+            </form>
+        </p>
+        <br>
+        <p>
+            <a class="btn btn-md" href="/questions" id="next_question" role="button">Next Question</a>
+        </p>
+        <p>
+            <a class="btn btn-md" href="/questions/result" id="done" role="button" target="_blank">I'm Finished</a>
+        </p>
+        <p>
+            <a class="btn btn-md" href="/users/sign-out" id="sign-out" role="button">Sign Out: {{this.username}} </a>
+        </p>
+    </center>
+    {{else}}
+    <div id="wrapper">
+        <center>
+            <div id="main-content" class="container">
+                <a class="btn btn-warning btn-lg" href='/users/sign-in' role='button'>Sign In</a>
+                <a class="btn btn-warning btn-lg" href="/users/create" role="button">Register</a>
             </div>
         </center>
     </div>
+    </center>
+    </div>
     {{{body}}} {{/if}}
-
-
-
     <footer class="footer">
     </footer>
 </body>
-
 <style>
     body {
-        background: #000000;
-        /* fallback for old browsers */
-        background: -webkit-linear-gradient(to bottom, #53346D, #000000);
-        /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(to bottom, #53346D, #000000);
-        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        background: linear-gradient(0.25turn, #53346D, #000000);
     }
 
     /* flashcode text text */
@@ -93,16 +81,20 @@
         font-family: 'Annie Use Your Telescope', cursive;
         text-align: center;
         font-size: 27px;
-        color:yellow;
+        color: yellow;
+        font: bold;
+    }
+
+    h4,
+    p {
+        font-family: 'Hind', sans-serif;
+        text-align: center;
+        font-size: 40px;
+        color: yellow;
         font: bold;
     }
 
     /* button text */
-
-    p {
-        text-align: center;
-        font-family: 'Bangers', cursive;
-    }
 
     /* pertains to jumbotron */
 
@@ -118,11 +110,7 @@
 
     .btn {
         background-color: #000000;
-    }
-
-    #signin,
-    #register {
-        text-align: center;
+        border-color: antiquewhite;
     }
 
     #answer {
