@@ -6,7 +6,9 @@ console.log('--------------the environment we are using----------------');
 // console.log(app.settings.env);
 console.log('--------------the environment we are using----------------');
 
-// if (app.settings.env == 'production'){
+if (process.env.NODE_ENV == 'production'){
+  var connection = mysql.createConnection(process.env.JAWSDB_URL);
+}else {
   var connection = mysql.createConnection({
     port: 3306,
     host: "localhost",
@@ -14,9 +16,7 @@ console.log('--------------the environment we are using----------------');
     password: "",
     database: "flashcard_db"
   });
-// }else {
-//   var connection = mysql.createConnection(process.env.JAWSDB_URL);
-// }
+}
 
 // Make connection.
 connection.connect(function(err) {
