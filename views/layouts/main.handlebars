@@ -20,22 +20,23 @@
     <h1>{flashCODE}</h1>
     <h2>Hone your development skills ... in a FLASH.</h2>
     <br> {{#if logged_in}} {{{ body }}}
+    <br>
     <center>
         <p>
             <form class="create-update-form" action="/questions/submit" method="POST">
-                <input type="text" name="user_input" placeholder="Your answer goes here">
-                <input type="submit" value="Submit">
+                <input class="input-lg col-xs-offset-3 col-xs-6" type="text" name="user_input" placeholder="Your answer goes here">
+                <input class="btn btn-lg btn-primary" type="submit" value="Submit">
             </form>
         </p>
         <br>
         <p>
-            <a class="btn btn-md" href="/questions" id="next_question" role="button">Next Question</a>
+            <a class="btn btn-md btn-warning" href="/questions" id="next_question" role="button">Next Question</a>
         </p>
         <p>
-            <a class="btn btn-md" href="/questions/result" id="done" role="button" target="_blank">I'm Finished</a>
+            <a class="btn btn-md btn-warning" href="/questions/result" id="done" role="button" target="_blank">I'm Finished</a>
         </p>
         <p>
-            <a class="btn btn-md" href="/users/sign-out" id="sign-out" role="button">Sign Out: {{this.username}} </a>
+            <a class="btn btn-md btn-warning" href="/users/sign-out" id="sign-out" role="button">Sign Out: {{this.username}} </a>
         </p>
     </center>
     {{else}}
@@ -111,9 +112,10 @@
     .btn {
         background-color: #000000;
         border-color: antiquewhite;
-    }
+    } 
 
     #answer {
         display: none;
     }
+
 </style>

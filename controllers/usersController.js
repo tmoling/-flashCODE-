@@ -51,11 +51,14 @@ res.redirect('/questions');
     req.session.destroy(function (err) {
       res.redirect('/')
     });
-    fs.unlink('log.pdf', (err) => {
-      if (err) throw err;
-      console.log('log.pdf was deleted');
-    });
-  });
+      if(fs.existsSync('log.pdf')){
+          fs.unlink('log.pdf', (err) => {
+            if (err) throw err;
+              console.log('log.pdf was deleted');
+        });
+      }
+
+   });
 
   //if user trys to sign in with the wrong password or email tell them that on the page
   router.get('/login', function (req, res) {
