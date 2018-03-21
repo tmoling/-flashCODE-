@@ -3,10 +3,10 @@ var mysql = require("mysql");
 var app = require('../server');
 
 console.log('--------------the environment we are using----------------');
-console.log(process.env);
+// console.log(app.settings.env);
 console.log('--------------the environment we are using----------------');
 
-if (process.env.NODE_ENV == 'production'){
+// if (app.settings.env == 'production'){
   var connection = mysql.createConnection({
     port: 3306,
     host: "localhost",
@@ -14,9 +14,9 @@ if (process.env.NODE_ENV == 'production'){
     password: "",
     database: "flashcard_db"
   });
-}else {
-  var connection = mysql.createConnection(process.env.JAWSDB_URL);
-}
+// }else {
+//   var connection = mysql.createConnection(process.env.JAWSDB_URL);
+// }
 
 // Make connection.
 connection.connect(function(err) {
