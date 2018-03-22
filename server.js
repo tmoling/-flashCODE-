@@ -4,12 +4,17 @@ var path = require('path');
 
 var app = module.exports = express();
 
+
 var cookieParser = require('cookie-parser');
 
 var session = require('express-session');
 //allow sessions
 app.use(session({ secret: 'app', cookie: { maxAge: 6 * 1000 * 1000 * 1000 * 1000 * 1000 * 1000 } }));
 app.use(cookieParser());
+
+app.use(express.static('public'));
+
+
 
 
 // this sets up express to handle data parsing
