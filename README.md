@@ -6,4 +6,4 @@ Users' log-in information will be saved into a MySQL database. In addition to HT
 Feel free to clone this project and add your own questions to the database.
 Happy coding!
 
-This app was designed by Jake Boldbataar, Troy Moling and Ryan Walters.
+This app was designed by Jake Boldbaatar, Troy Moling and Ryan Walters.
